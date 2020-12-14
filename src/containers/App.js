@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
-import Navbar from '../components/Navbar';
-// import LoginForm from '../components/LoginForm';
-import Footer from '../components/Footer';
-import { Glyphicon } from 'react-bootstrap';
-import '../styles/App.css';
+import React, { Component } from "react";
+import Navbar from "../components/navbar";
+import LoginForm from "../components/LoginForm";
+import Footer from "../components/Footer";
+import { Glyphicon } from "react-bootstrap";
+import "../styles/App.css";
 
 class App extends Component {
-
   constructor(props) {
     super(props);
 
     this.state = {
       showLoginForm: true,
-      showCheckmark: false
+      showCheckmark: false,
     };
     this.handleLogout = this.handleLogout.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
   }
 
   handleLogin() {
     this.refs.navbutton.handleLogoutButton();
-    this.setState({ 
+    this.setState({
       showLoginForm: false,
-      showCheckmark: true
+      showCheckmark: true,
     });
   }
 
@@ -29,19 +29,23 @@ class App extends Component {
     this.refs.navbutton.handleLogoutButton();
     this.setState({
       showLoginForm: true,
-      showCheckmark: false
+      showCheckmark: false,
     });
   }
 
   render() {
     return (
-      <div className='app'>
-        <Navbar ref='navbutton' handleLogout={this.handleLogout} />
-        <div className={this.state.showLoginForm === true ? '' : 'hide'}>
+      <div className="app">
+        <Navbar ref="navbutton" handleLogout={this.handleLogout} />
+        <div className={this.state.showLoginForm === true ? "" : "hide"}>
           <LoginForm handleLogin={this.handleLogin} />
         </div>
-        <div className={this.state.showCheckmark === true ? 'text-center mt9x' : 'hide'}>
-          <Glyphicon glyph='glyphicon glyphicon-ok-sign' />
+        <div
+          className={
+            this.state.showCheckmark === true ? "text-center mt9x" : "hide"
+          }
+        >
+          <Glyphicon glyph="glyphicon glyphicon-ok-sign" />
           <h2>Great work!</h2>
         </div>
         <Footer />

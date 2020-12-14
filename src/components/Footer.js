@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import '../styles/App.css';
+import React, { Component } from "react";
+import "../styles/App.css";
 
-class Footer extend Component {
+class Footer extends Component {
   render() {
     return (
       <div>
-        <div className='footer-anchor'></div>
-        <div className='app-footer'></div>
+        <div className="footer-anchor"></div>
+        <div className="app-footer"></div>
       </div>
     );
   }
